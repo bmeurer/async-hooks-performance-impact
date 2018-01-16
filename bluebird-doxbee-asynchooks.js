@@ -1,3 +1,4 @@
+const util = require('util');
 const async_hooks = require('async_hooks');
 const hook = async_hooks.createHook({
     init(asyncId, type, triggerAsyncId) { }
@@ -6,23 +7,7 @@ hook.enable();
 
 var global = {};
 
-var lifter = function(nodefn) {
-  return function() {
-    var self = this;
-    var l = arguments.length;
-    var args = new Array(l + 1);
-    for (var i = 0; i < l; ++i) {
-      args[i] = arguments[i];
-    }
-    return new Promise(function(resolve, reject) {
-      args[l] = function(err, val) {
-        if (err) reject(err);
-        else resolve(val);
-      };
-      nodefn.apply(self, args);
-    });
-  };
-};
+var lifter = util.promisify;
 
 function dummy(n) {
   return function dummy_n() {
