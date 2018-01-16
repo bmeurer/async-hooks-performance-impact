@@ -1,5 +1,8 @@
 # Performance impact of async_hooks
 
+ - https://github.com/nodejs/diagnostics/issues/124
+ - https://github.com/nodejs/benchmarking/issues/188
+
 This is a simple demo of the potential performance impact of `async_hooks`
 on Promise heavy workloads. This repository contains the popular
 [Bluebird](https://github.com/petkaantonov/bluebird) benchmarks and the
