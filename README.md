@@ -33,6 +33,8 @@ enabled:
 | Wikipedia (asynchooks)         |    1656 ms |    1790 ms |
 | Wikipedia (regular)            |     930 ms |     863 ms |
 
+![Results for Node 9.3.0](https://raw.githubusercontent.com/bmeurer/async-hooks-performance-impact/master/results-node-9.3.0.png)
+
 
 ## Bluebird benchmarks
 
