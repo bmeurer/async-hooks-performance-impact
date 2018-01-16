@@ -144,7 +144,7 @@ function perf() {
     }
     if (!--times) {
       fn.end && fn.end();
-      console.log(`Bluebird-parallel (regular): ${Date.now() - start} ms.`);
+      console.log(`Bluebird-parallel: ${Date.now() - start} ms.`);
     }
   }
 }
