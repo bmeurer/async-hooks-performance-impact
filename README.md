@@ -24,8 +24,8 @@ hook.enable();
 
 ## Results
 
-Here the results of running the benchmarks with and without `async_hooks`
-enabled:
+Here the results of running the Promise micro benchmarks with and without
+`async_hooks` enabled:
 
 | Benchmark                      | Node 8.4.0 | Node 9.3.0 |
 | ------------------------------:| ----------:| ----------:|
@@ -38,6 +38,20 @@ enabled:
 
 ![Results for Node 9.3.0](https://raw.githubusercontent.com/bmeurer/async-hooks-performance-impact/master/results-node-9.3.0.png)
 
+And we also ran some more realistic benchmarks, based on `hapi` and
+`koa`, with and without `async_hooks` enabled:
+
+| Benchmark         | Node 9.4.0    |
+| ----------------: | ------------: |
+| hapi (asynchooks) | 6026.9 reqs   |
+| hapi (regular)    | 9024.19 reqs  |
+| koa (asynchooks)  | 11508.6 reqs  |
+| koa (regular)     | 12592.55 reqs |
+
+The `koa` benchmark is pretty flaky, so the performance difference could be
+within noise and thus not relevant.
+
+![Results for Node 9.4.0](https://raw.githubusercontent.com/bmeurer/async-hooks-performance-impact/master/results-hapi-koa-node-9.4.0.png)
 
 ## Bluebird benchmarks
 

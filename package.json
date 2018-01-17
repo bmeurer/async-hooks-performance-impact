@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "autocannon": "^0.16.5",
-    "hapi": "^17.2.0"
+    "hapi": "^17.2.0",
+    "koa": "^2.4.1"
   }
 }

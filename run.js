@@ -1,6 +1,6 @@
 const cp = require('child_process');
 
-const BENCHMARKS = [ 'bluebird-doxbee.js', 'bluebird-parallel.js', 'wikipedia.js', 'hapiserver.js' ];
+const BENCHMARKS = [ 'bluebird-doxbee.js', 'bluebird-parallel.js', 'wikipedia.js', 'hapiserver.js', 'koaserver.js'];
 const hook = './async-hook.js';
 
 async function main() {

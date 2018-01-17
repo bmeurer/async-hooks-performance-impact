@@ -15,7 +15,7 @@ server.route({
 
 server.start().catch(err => console.log(err));
 
-const autocannon = require('autocannon')
+const autocannon = require('autocannon');
 
 autocannon({
     url: `http://${host}:${port}`,
