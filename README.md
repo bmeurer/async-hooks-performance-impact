@@ -21,22 +21,39 @@ const hook = async_hooks.createHook({
 hook.enable();
 ```
 
+We also test with all hooks (i.e. `init`, `before`, `after`, `destroy`
+and `promiseResolve`) using the following snippet:
+
+```js
+const async_hooks = require('async_hooks');
+const hook = async_hooks.createHook({
+    init(asyncId, type, triggerAsyncId, resource) { },
+    before(asyncId) { },
+    after(asyncId) { },
+    destroy(asyncId) { },
+    promiseResolve(asyncId) { },
+});
+hook.enable();
+```
 
 ## Results
 
 Here the results of running the Promise micro benchmarks with and without
 `async_hooks` enabled:
 
-| Benchmark                      | Node 8.4.0 | Node 9.3.0 |
+| Benchmark                      | Node 8.9.4 | Node 9.4.0 |
 | ------------------------------:| ----------:| ----------:|
-| Bluebird-doxbee (asynchooks)   |     458 ms |     369 ms |
-| Bluebird-doxbee (regular)      |     301 ms |     179 ms |
-| Bluebird-parallel (asynchooks) |    1310 ms |    1079 ms |
-| Bluebird-parallel (regular)    |     839 ms |     671 ms |
-| Wikipedia (asynchooks)         |    1656 ms |    1790 ms |
-| Wikipedia (regular)            |     930 ms |     863 ms |
+| Bluebird-doxbee (regular)      |     226 ms |     189 ms |
+| Bluebird-doxbee (init hook)    |     383 ms |     341 ms |
+| Bluebird-doxbee (all hooks)    |     440 ms |     411 ms |
+| Bluebird-parallel (regular)    |     924 ms |     696 ms |
+| Bluebird-parallel (init hook)  |    1380 ms |    1050 ms |
+| Bluebird-parallel (all hooks)  |    1488 ms |    1220 ms |
+| Wikipedia (regular)            |     993 ms |     804 ms |
+| Wikipedia (init hook)          |    2025 ms |    1893 ms |
+| Wikipedia (all hooks)          |    2109 ms |    2124 ms |
 
-![Results for Node 9.3.0](https://raw.githubusercontent.com/bmeurer/async-hooks-performance-impact/master/results-node-9.3.0.png)
+![Results for Node 9.4.0](https://raw.githubusercontent.com/bmeurer/async-hooks-performance-impact/master/results-promise-node-9.4.0.png)
 
 And we also ran some more realistic benchmarks, based on `hapi` and
 `koa`, with and without `async_hooks` enabled:
