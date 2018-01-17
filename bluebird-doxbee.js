@@ -168,7 +168,7 @@ function perf() {
     }
     if (!--times) {
       fn.end && fn.end();
-      console.log(`Bluebird-doxbee (regular): ${Date.now() - start} ms.`);
+      console.log(`Bluebird-doxbee: ${Date.now() - start} ms.`);
     }
   }
 }

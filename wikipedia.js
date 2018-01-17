@@ -924,7 +924,7 @@ function evalTemplate(tpl) {
     evalTemplate(precompiledTemplate).then(() => {
       count++;
       if ( count === n ) {
-        console.log(`Wikipedia (regular): ${Date.now() - start} ms.`);
+        console.log(`Wikipedia: ${Date.now() - start} ms.`);
       }
     });
   }
